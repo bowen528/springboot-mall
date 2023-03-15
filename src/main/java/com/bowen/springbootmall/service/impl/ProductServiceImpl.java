@@ -2,10 +2,13 @@ package com.bowen.springbootmall.service.impl;
 
 
 import com.bowen.springbootmall.dao.ProductDao;
+import com.bowen.springbootmall.dto.ProductRequest;
 import com.bowen.springbootmall.model.Product;
 import com.bowen.springbootmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.NotNull;
 
 @Component
 public class ProductServiceImpl implements ProductService {
@@ -17,4 +20,14 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(Integer productId) {
         return productDao.getProductById(productId);
     }
+
+    @Override
+    public Integer createProudct(ProductRequest productRequest) {
+        return productDao.createProudct(productRequest) ;
+    }
+
+
+
+
+
 }
