@@ -2,6 +2,7 @@ package com.bowen.springbootmall.controller;
 
 
 import com.bowen.springbootmall.constant.ProductCategory;
+import com.bowen.springbootmall.dto.ProductQueryParams;
 import com.bowen.springbootmall.dto.ProductRequest;
 import com.bowen.springbootmall.model.Product;
 import com.bowen.springbootmall.service.ProductService;
@@ -25,7 +26,11 @@ public class ProductController {
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search
     ){
-        List<Product> productList = productService.getProducts(category,search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
 

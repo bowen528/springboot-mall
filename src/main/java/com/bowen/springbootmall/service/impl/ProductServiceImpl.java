@@ -1,23 +1,24 @@
 package com.bowen.springbootmall.service.impl;
 
 
-import com.bowen.springbootmall.constant.ProductCategory;
+
 import com.bowen.springbootmall.dao.ProductDao;
+import com.bowen.springbootmall.dto.ProductQueryParams;
 import com.bowen.springbootmall.dto.ProductRequest;
 import com.bowen.springbootmall.model.Product;
 import com.bowen.springbootmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
+
 import java.util.List;
 
 @Component
 public class ProductServiceImpl implements ProductService {
 
     @Override
-    public List<Product> getProducts(ProductCategory category,String search) {
-        return productDao.getProducts(category, search);
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
+        return productDao.getProducts(productQueryParams);
     }
 
     @Autowired

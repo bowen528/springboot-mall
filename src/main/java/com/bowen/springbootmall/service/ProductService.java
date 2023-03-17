@@ -1,6 +1,7 @@
 package com.bowen.springbootmall.service;
 
-import com.bowen.springbootmall.constant.ProductCategory;
+
+import com.bowen.springbootmall.dto.ProductQueryParams;
 import com.bowen.springbootmall.dto.ProductRequest;
 import com.bowen.springbootmall.model.Product;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<Product> getProducts(ProductCategory category,String search);
+    List<Product> getProducts(ProductQueryParams productQueryParams);
 
     Product getProductById(Integer productId);
 
